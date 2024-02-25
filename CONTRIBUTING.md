@@ -1,6 +1,6 @@
 # CONTRIBUTING
 
-Thank you for wanting to contribute to plugname!
+Thank you for wanting to contribute to treefactor!
 
 ## Issues
 

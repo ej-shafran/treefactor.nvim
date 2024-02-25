@@ -15,4 +15,4 @@ lint:
 	luacheck lua --globals vim
 
 docker-build:
-	docker build --no-cache . -t plugname
+	docker build --no-cache . -t treefactor

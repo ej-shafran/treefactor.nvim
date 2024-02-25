@@ -10,7 +10,7 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v4"
         with:
-          path: "plugname"
+          path: "treefactor"
       # TODO
       # Checkout dependencies here
       # - uses: "actions/checkout@v4"
@@ -28,5 +28,5 @@ jobs:
           sudo add-apt-repository ppa:neovim-ppa/unstable
           sudo apt-get install neovim
       - name: "Test"
-        working-directory: "plugname"
+        working-directory: "treefactor"
         run: "make test"

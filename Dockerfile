@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 # Make `/code/` directory
-RUN mkdir -p /code/plugname/
+RUN mkdir -p /code/treefactor/
 
 # Basic dependencies from apt
 RUN apt-get update
@@ -22,8 +22,12 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 RUN cargo install stylua
 
 # Clone dependencies
-# TODO
+RUN git clone https://github.com/nvim-lua/plenary.nvim.git /code/plenary.nvim
+
+# Add neovim
+RUN add-apt-repository --yes ppa:neovim-ppa/unstable && \
+    apt-get install -y neovim
 
 # Run format, lint, test, etc. on container run
-WORKDIR /code/plugname/
+WORKDIR /code/treefactor/
 CMD make ci-install-deps && make
