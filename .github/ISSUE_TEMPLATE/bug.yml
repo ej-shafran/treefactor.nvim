@@ -1,0 +1,20 @@
+name: "Bug Report"
+description: "File a bug report"
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        "Thanks for taking the time to fill out this bug report!"
+  - type: "textarea"
+    id: "What is the issue?"
+    attributes:
+      label: "What is the issue?"
+      description: "Describe the issue in detail"
+      placeholder: "Tell us what's going on!"
+    validations:
+      required: true
+
+  # TODO
+  # Create in depth issue template

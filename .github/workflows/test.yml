@@ -1,0 +1,32 @@
+name: "Test"
+
+on: ["push", "pull_request"]
+
+jobs:
+  lint:
+    name: "PlenaryBustedDirectory"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4"
+        with:
+          path: "plugname"
+      # TODO
+      # Checkout dependencies here
+      # - uses: "actions/checkout@v4"
+      #   with:
+      #     repository: "nvim-treesitter/nvim-treesitter"
+      #     path: "nvim-treesitter"
+      - name: "Dependency - plenary.nvim"
+        uses: "actions/checkout@v4"
+        with:
+          repository: "nvim-lua/plenary.nvim"
+          path: "plenary.nvim"
+      - name: "Setup"
+        run: |
+          sudo apt-get update
+          sudo add-apt-repository ppa:neovim-ppa/unstable
+          sudo apt-get install neovim
+      - name: "Test"
+        working-directory: "plugname"
+        run: "make test"
